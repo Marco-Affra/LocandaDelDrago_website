@@ -16,7 +16,7 @@ import ScrollToTop from './components/ScrollToTop';
 export default function App() {
   return (
     <LanguageProvider>
-      <Router basename="/LocandaDelDrago_website"> {/* <--- AGGIUNGI basename QUI per il caricamento su github*/}
+      <Router> 
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
