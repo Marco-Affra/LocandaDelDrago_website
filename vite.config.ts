@@ -5,7 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: '/LocandaDelDrago_website/',  //aggiunzione per pubblicazione github
+    base: '/', 
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
