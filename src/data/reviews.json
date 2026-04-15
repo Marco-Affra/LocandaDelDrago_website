@@ -1,0 +1,50 @@
+[
+  {
+    "id": 5,
+    "autore": "Andrea Bluwolf",
+    "voto_globale": 5,
+    "periodo": "2 mesi fa",
+    "testo": "Sinceramente un bel posto e una buona e grande pizza e prezzi bassi",
+    "fonte": "https://share.google/NaY20gvFsSz61fAIO"
+  },
+  {
+    "id": 6,
+    "autore": "Enrico Olmi",
+    "voto_globale": 5,
+    "periodo": "7 mesi fa",
+    "testo": "Location superlativa con bella view. Servizio ineccepibile. Pizza ottima e non banale. Prezzo assolutamente corretto. Consigliatissimo",
+    "fonte": "https://share.google/WGxaLq3ofHQjJOUkx"
+  },
+  {
+    "id": 4,
+    "autore": "Gianluca Rocchi",
+    "voto_globale": 5,
+    "periodo": "7 mesi fa",
+    "testo": "Posto incantevole e tranquillo il panorama che si gusta dall'alto è meraviglioso. Abbiamo fatto il giro pizza, buonissima tra l'altro, ma prima gli antipasti caratteristici, la caponata è spettacolare. Inoltre, e cosa non da poco, si può parlare tra commensali senza musiche assordanti. Bravi.",
+    "fonte": "https://share.google/DmHMP96QqKCSrqhD9"
+  },
+  {
+    "id": 1,
+    "autore": "Letizia Cangemi",
+    "voto_globale": 5,
+    "periodo": "9 mesi fa",
+    "testo": "Esperienza fantastica. Ho festeggiato la prima comunione di mia figlia. Tutt'ora i miei ospiti mi fanno i complimenti per la scelta del locale e del menù. Piatti ottimi e abbondanti. Il personale gentilissimo e pronto ad ogni richiesta del cliente. I proprietari sono eccezionali. Consiglio la Locanda del Drago per ogni occasione o semplicemente per consumare un'ottima pizza.",
+    "fonte": "https://share.google/yiMjmfTGkwKfooh1t"
+  },
+  {
+    "id": 3,
+    "autore": "Aldo Nardini",
+    "voto_globale": 5,
+    "periodo": "11 mesi fa",
+    "testo": "Ottimo locale incastonato nella roccia cibo molto buono e porzioni abbondanti il rapporto qualità prezzo è ottimo. Il personale è gentile e disponibile. Bravi 👏🏻",
+    "fonte": "https://share.google/xcRcfbnMFozeYvMzp"
+  },
+  {
+    "id": 2,
+    "autore": "Mary",
+    "voto_globale": 5,
+    "periodo": "2 anni fa",
+    "testo": "Personale molto attento alle richieste dei clienti e veloce nel servizio. Piatti davvero abbondanti e di ottima qualità, con prezzi giusti e non esagerati, io personalmente ho assaggiato sia i primi piatti che la pizza e sono rimasta molto soddisfatta. Sicuramente ci ritornerò 💯",
+    "fonte": "https://share.google/7UOczOwtXvdl3Espu"
+  }
+]
