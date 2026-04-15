@@ -16,7 +16,7 @@ import ScrollToTop from './components/ScrollToTop';
 export default function App() {
   return (
     <LanguageProvider>
-      <BrowserRouter> 
+      <Router> 
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -25,7 +25,7 @@ export default function App() {
           <Route path="/eventi" element={<Events />} />
           <Route path="/galleria" element={<Gallery />} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </LanguageProvider>
   );
 }
