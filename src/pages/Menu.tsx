@@ -118,7 +118,7 @@ export default function Menu() {
       <SEO 
         title={t("Il Nostro Menù", "Our Menu")}
         description={t(
-          "Scopri le nostre specialità siciliane: antipasti, primi, secondi e le nostre pizze cotte nel forno a legna.",
+          "Scopri le nostre specialità siciliane: antipasti, primi, secondi e pizze cotte nel forno a legna.",
           "Discover our Sicilian specialties: rustic appetizers, seafood first courses, grilled meats, and our famous wood-fired pizzas."
         )}
         image="/images/cucina-3.webp"
