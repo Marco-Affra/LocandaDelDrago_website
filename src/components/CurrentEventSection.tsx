@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { Calendar, FileText, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
+import { LazyImage } from './LazyImage';
 import { getCurrentEvent } from '../data/eventData';
 
 
@@ -24,11 +25,10 @@ export function CurrentEventSection() {
           className="bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col lg:flex-row"
         >
           <div className="lg:w-1/2 relative h-64 lg:h-auto">
-            <img 
+            <LazyImage 
               src={currentEvent.image} 
               alt={currentEvent.title}
-              className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
+              containerClassName="w-full h-full"
             />
             <div className="absolute top-4 left-4 bg-bordeaux text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg">
               {t("EVENTO IN CORSO", "CURRENT EVENT")}

@@ -3,12 +3,15 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
+import { SEO } from '../components/SEO';
+import { LazyImage } from '../components/LazyImage';
+import { ShareButton } from '../components/ShareButton';
 import { getMenuData } from '../data/menuData';
 import { cn } from '../lib/utils';
 import { Info, X, Maximize2 } from 'lucide-react';
 
 export default function Menu() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const menuData = getMenuData(t);
   const [activeCategory, setActiveCategory] = useState(menuData[0].id);
   const [selectedImage, setSelectedImage] = useState<{url: string, title: string} | null>(null);
@@ -98,8 +101,29 @@ export default function Menu() {
     setSelectedImage(null);
   };
 
+  const menuSchema = {
+    "@context": "https://schema.org",
+    "@type": "Menu",
+    "name": t("Menù Locanda del Drago", "Locanda del Drago Menu"),
+    "mainEntityOfPage": `${window.location.origin}/menu`,
+    "inLanguage": lang === 'en' ? 'en' : 'it',
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "EUR"
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-crema">
+      <SEO 
+        title={t("Il Nostro Menù", "Our Menu")}
+        description={t(
+          "Scopri le nostre specialità siciliane: antipasti, primi, secondi e le nostre pizze cotte nel forno a legna.",
+          "Discover our Sicilian specialties: rustic appetizers, seafood first courses, grilled meats, and our famous wood-fired pizzas."
+        )}
+        image="/images/cucina-3.webp"
+        jsonLd={menuSchema}
+      />
       <Navbar />
 
       <main className="flex-grow pt-32 pb-20 px-4">
@@ -118,6 +142,10 @@ export default function Menu() {
               {t("Scopri le nostre specialità, preparate con ingredienti freschi e passione.", "Discover our specialties, prepared with fresh ingredients and passion.")}
             </p>
           </motion.div>
+
+          <div className="flex justify-center">
+            <ShareButton />
+          </div>
 
           {/* Allergens Info Box */}
           <motion.div 
@@ -230,11 +258,10 @@ export default function Menu() {
                             className="mt-2 relative w-24 h-16 rounded-md overflow-hidden cursor-pointer group border border-oro/30 shadow-sm"
                             onClick={() => openLightbox(item.image!, item.name)}
                           >
-                            <img 
+                            <LazyImage 
                               src={item.image} 
                               alt={item.name} 
-                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                              referrerPolicy="no-referrer"
+                              containerClassName="w-full h-full"
                             />
                             <div className="absolute inset-0 bg-scuro/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                               <Maximize2 size={16} className="text-white" />

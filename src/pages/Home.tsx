@@ -10,6 +10,7 @@ import { ReviewsSection } from '../components/ReviewsSection';
 import { BookingModal } from '../components/BookingModal';
 import { Footer } from '../components/Footer';
 import { CurrentEventSection } from '../components/CurrentEventSection';
+import { SEO } from '../components/SEO';
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -28,8 +29,67 @@ export default function Home() {
     }
   }, [location]);
 
+  const restaurantSchema = {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Locanda del Drago",
+    "image": [
+      `${window.location.origin}/images/hero-1-.webp`,
+      `${window.location.origin}/images/home-1-.webp`,
+      `${window.location.origin}/images/cucina-3.webp`
+    ],
+    "@id": `${window.location.origin}/#restaurant`,
+    "url": window.location.origin,
+    "telephone": "+393381428949",
+    "priceRange": "$$",
+    "menu": `${window.location.origin}/menu`,
+    "servesCuisine": ["Sicilian", "Pizza"],
+    "acceptsReservations": "true",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Fontana del Drago, 19",
+      "addressLocality": "Monreale",
+      "addressRegion": "PA",
+      "postalCode": "90046",
+      "addressCountry": "IT"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 38.0827,
+      "longitude": 13.2875
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "19:00",
+        "closes": "23:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/locandadeldragopizzeria/",
+      "https://www.instagram.com/locandadeldrago_/"
+    ]
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO 
+        title={t("Benvenuti alla Locanda del Drago", "Welcome to Locanda del Drago")}
+        description={t(
+          "Pizzeria e ristorante con vista panoramica a Monreale. Gusta piatti della tradizione siciliana immersi nel panorama della Conca d’Oro di Palermo.",
+          "Pizzeria and restaurant with a panoramic view in Monreale. Enjoy traditional Sicilian dishes surrounded by the panorama of Palermo’s Conca d’Oro."
+        )}
+        image="/images/hero-1-.webp"
+        jsonLd={restaurantSchema}
+      />
       <Navbar />
       
       <main className="flex-grow">
@@ -206,7 +266,7 @@ export default function Home() {
                 <h3 className="font-cinzel font-bold text-xl text-scuro mb-4 uppercase tracking-wider">{t("Orari", "Hours")}</h3>
                 <div className="space-y-2 mb-4">
                   <p className="text-scuro font-bold">{t("Da Martedì a Domenica", "From Tuesday to Sunday")}</p>
-                  <p className="text-scuro/70">19:00 — 00:00</p>
+                  <p className="text-scuro/70">19:00 — 23:00</p>
                 </div>
                 <div className="mt-auto py-2 px-4 bg-crema rounded-full">
                   <p className="text-bordeaux font-bold italic text-sm">{t("Lunedì chiusi", "Mondays closed")}</p>

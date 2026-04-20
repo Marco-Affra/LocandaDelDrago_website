@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
+import { SEO } from '../components/SEO';
 import { ImageSlideshow } from '../components/Slideshow';
 import { CurrentEventSection } from '../components/CurrentEventSection';
 
@@ -22,6 +23,14 @@ export default function Events() {
 
   return (
     <div className="min-h-screen flex flex-col bg-stone-50">
+      <SEO 
+        title={t("Eventi & Banchetti", "Events & Banquets")}
+        description={t(
+          "Organizza i tuoi momenti speciali alla Locanda del Drago. Menù personalizzati per cerimonie, pranzi e cene di gruppo a Monreale.",
+          "Organize your special moments at Locanda del Drago. Personalized menus for ceremonies, group lunches and dinners in Monreale."
+        )}
+        image="/images/event-hero.webp"
+      />
       <Navbar />
 
       <main className="flex-grow pt-24">

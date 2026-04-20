@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Slideshow } from './Slideshow';
 import { useLanguage } from '../contexts/LanguageContext';
+import { ShareButton } from './ShareButton';
 
 const HERO_IMAGES = [
   `${import.meta.env.BASE_URL}images/hero-1-.webp`,
@@ -20,7 +21,7 @@ export function Hero({ onOpenBooking }: HeroProps) {
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Slideshow */}
       <div className="absolute inset-0 z-0">
-        <Slideshow images={HERO_IMAGES} />
+        <Slideshow images={HERO_IMAGES} priority={true} />
       </div>
       
       {/* Overlay per leggibilità */}
@@ -59,6 +60,8 @@ export function Hero({ onOpenBooking }: HeroProps) {
         >
           {t('PRENOTA ORA', 'BOOK NOW')}
         </motion.button>
+
+        <ShareButton variant="hero" />
       </motion.div>
     </section>
   );

@@ -3,6 +3,8 @@ import { motion } from 'motion/react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
+import { SEO } from '../components/SEO';
+import { ShareButton } from '../components/ShareButton';
 import { Check, Info, Pizza, Coffee, Utensils, Droplets, Soup, Apple } from 'lucide-react';
 
 export default function GiroPizza() {
@@ -59,7 +61,7 @@ export default function GiroPizza() {
     ],
     primi: [
       t("Busiate al pistacchio", "Busiate pasta with pistachio"),
-      t("Tagliatelle al ragù di cinghiale", "Tagliatelle with wild boar ragù")
+      t("Trofie al ragù di cinghiale", "Trofie with wild boar ragù")
     ],
     drinks: [
       t("Acqua", "Water"),
@@ -86,6 +88,14 @@ export default function GiroPizza() {
 
   return (
     <div className="min-h-screen flex flex-col bg-crema">
+      <SEO 
+        title={t("Giro Pizza", "Pizza Party")}
+        description={t(
+          "Un'esperienza conviviale di gruppo con la nostra formula Giro Pizza. Assaggia tutte le nostre pizze cotte nel forno a legna in un'atmosfera unica.",
+          "A convivial group experience with our Pizza Party formula. Taste all our wood-fired pizzas in a unique atmosphere."
+        )}
+        image="/images/forno-1.webp"
+      />
       <Navbar />
       
       <main className="flex-grow pt-32 pb-20 px-4">
@@ -104,6 +114,10 @@ export default function GiroPizza() {
               {t("Un'esperienza conviviale di gruppo dove la pizza è la vera protagonista.", "A convivial experience for groups, where pizza is the true protagonist.")}
             </p>
           </motion.div>
+
+          <div className="flex justify-center">
+            <ShareButton />
+          </div>
 
           {/* Menus Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">

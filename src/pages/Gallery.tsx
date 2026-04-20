@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
+import { LazyImage } from '../components/LazyImage';
 import { cn } from '../lib/utils';
 
 export default function Gallery() {
@@ -82,17 +83,21 @@ export default function Gallery() {
           >
             <div className="relative aspect-[16/10] overflow-hidden rounded-lg">
               <AnimatePresence mode="wait">
-                <motion.img
+                <motion.div
                   key={currentIndex}
-                  src={images[currentIndex].url}
-                  alt={images[currentIndex].title}
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -50 }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
-                />
+                  className="absolute inset-0"
+                >
+                  <LazyImage 
+                    src={images[currentIndex].url}
+                    alt={images[currentIndex].title}
+                    containerClassName="w-full h-full"
+                    priority={currentIndex < 2} // Preload first two images
+                  />
+                </motion.div>
               </AnimatePresence>
 
               {/* Navigation Arrows */}
@@ -138,7 +143,7 @@ export default function Gallery() {
                   currentIndex === idx ? "border-oro scale-110 shadow-lg" : "border-transparent opacity-50 hover:opacity-100"
                 )}
               >
-                <img src={img.url} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                <LazyImage src={img.url} alt="" containerClassName="w-full h-full" />
               </button>
             ))}
           </div>

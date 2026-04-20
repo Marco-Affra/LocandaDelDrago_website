@@ -49,6 +49,7 @@ export function Footer() {
               <li><Link to="/giro-pizza" className="hover:text-oro transition-colors">{t("Giro Pizza", "Pizza Party")}</Link></li>
               <li><Link to="/eventi" className="hover:text-oro transition-colors">{t("Eventi", "Events")}</Link></li>
               <li><Link to={isHome ? "#contatti" : "/#contatti"} className="hover:text-oro transition-colors">{t("Contatti", "Contacts")}</Link></li>
+              <li><Link to="/legal" className="hover:text-oro transition-colors">{t("Privacy & Cookies", "Privacy & Cookies")}</Link></li>
             </ul>
           </div>
 
@@ -60,7 +61,7 @@ export function Footer() {
             <div className="text-sm space-y-3">
               <div className="flex items-center justify-center md:justify-start gap-2">
                 <span>{t("Da Martedì a Domenica", "From Tuesday to Sunday")}:</span>
-                <span className="text-white">19:00 - 00:00</span>
+                <span className="text-white">19:00 - 23:00</span>
               </div>
               <p className="text-oro font-bold italic">
                 {t("Lunedì chiusi", "Mondays closed")}
@@ -107,6 +108,8 @@ export function Footer() {
           
           <div className="flex items-center gap-2">
             <p>© {new Date().getFullYear()}</p>
+            <span className="hidden md:inline opacity-30">|</span>
+            <Link to="/legal" className="hover:text-white transition-colors">{t("Privacy & Policy", "Privacy & Policy")}</Link>
             <span className="hidden md:inline opacity-30">|</span>
             <p>
               Created by{" "}
