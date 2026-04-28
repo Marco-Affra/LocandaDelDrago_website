@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home Page -->
+  <url>
+    <loc>https://locandadragoristorante.it/</loc>
+    <lastmod>2024-04-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Menù -->
+  <url>
+    <loc>https://locandadragoristorante.it/menu</loc>
+    <lastmod>2024-04-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Giro Pizza -->
+  <url>
+    <loc>https://locandadragoristorante.it/giro-pizza</loc>
+    <lastmod>2024-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Galleria -->
+  <url>
+    <loc>https://locandadragoristorante.it/galleria</loc>
+    <lastmod>2024-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Eventi -->
+  <url>
+    <loc>https://locandadragoristorante.it/eventi</loc>
+    <lastmod>2024-04-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Note Legali -->
+  <url>
+    <loc>https://locandadragoristorante.it/legal</loc>
+    <lastmod>2024-04-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>

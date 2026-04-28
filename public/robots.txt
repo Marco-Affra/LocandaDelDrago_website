@@ -1,0 +1,6 @@
+# Informazioni per i motori di ricerca
+User-agent: *
+Allow: /
+
+# Link alla Sitemap
+Sitemap: https://locandadragoristorante.it/sitemap.xml
