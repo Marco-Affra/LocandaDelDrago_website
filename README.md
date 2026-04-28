@@ -5,8 +5,7 @@ Benvenuti nel repository ufficiale della **Locanda del Drago**. Questo è un sit
 ---
 
 ## 🚀 Demo Live
-🔗 [Visualizza il sito live su Netlify](https://locandadeldragoristorante.it) 
-*(Sostituisci questo link con l'indirizzo reale una volta fatto il deploy)*
+🔗 [Visualizza il sito live su Netlify](https://locandadragoristorante.it/) 
 
 ---
 
@@ -23,6 +22,6 @@ Benvenuti nel repository ufficiale della **Locanda del Drago**. Questo è un sit
 - **Frontend:** [React.js](https://reactjs.org/)
 - **Styling:** CSS3 / Styled Components (o la libreria che stai usando)
 - **Hosting & CI/CD:** [Netlify](https://www.netlify.com/)
-- **Domain Management:** [Cloudflare](https://www.cloudflare.com/)
+- **Domain Management:** [Hosting Aruba](https://hosting.aruba.it/)
 
 ---
