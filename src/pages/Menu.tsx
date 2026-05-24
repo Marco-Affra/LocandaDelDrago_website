@@ -28,6 +28,7 @@ export default function Menu() {
       title: t("Pizze", "Pizzas"), 
       ids: ["pizze-classiche", "pizze-locanda", "pizze-bordo-ripieno", "pizze-pistacchio", "pizze-bianche", "pizze-rosse", "schiacciate", "aggiunzioni-pizze"] 
     },
+    { id: "group-dessert", title: t("Dessert", "Dessert"), ids: ["dessert"] }, 
     { id: "group-vini", title: t("Vini", "Wines"), ids: ["vini"] },
     { id: "group-birre", title: t("Birre", "Beers"), ids: ["birre"] },
     { id: "group-bibite", title: t("Bibite", "Drinks"), ids: ["bibite"] }

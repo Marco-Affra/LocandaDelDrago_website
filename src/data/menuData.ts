@@ -228,6 +228,18 @@ export const getMenuData = (t: (it: string, en: string) => string): MenuCategory
     ]
   },
   {
+    id: "dessert",
+    title: t("Dessert", "Dessert"),
+    items: [
+      { name: t("Sorbetto al limone", "Lemon sorbet"), price: "2,50" },
+      { name: t("Tiramisù", "Tiramisù"), description: t("Anche senza lattosio", "Also lactose-free"), price: "5,00" },
+      { name: t("Cassatelle con ricotta", "Cassatelle with ricotta"), price: "3,50" },
+      { name: t("Semifreddo alla mandorla", "Almond Semifreddo"), description: t("Con topping al cioccolato", "With chocolate topping"), price: "4,00" },
+      { name: t("Semifreddo al pistacchio", "Pistachio Semifreddo"), description: t("Con topping ai frutti di bosco", "With berry topping"), price: "4,50" },
+      { name: t("Tortino cuore caldo", "Warm heart cake"), description: t("Con gelato alla vaniglia e topping al cioccolato", "With vanilla ice cream and chocolate topping"), price: "4,00" }
+    ]
+  },
+  {
     id: "vini",
     title: t("Vini", "Wines"),
     items: [
