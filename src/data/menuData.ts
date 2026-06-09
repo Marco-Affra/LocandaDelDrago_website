@@ -32,24 +32,38 @@ export const getMenuData = (t: (it: string, en: string) => string): MenuCategory
     id: "antipasti-pesce",
     title: t("Antipasti di Pesce", "Seafood Appetizers"),
     items: [
-      { name: t("Salmone, stracciatella di bufala e pistacchio", "Salmon, buffalo stracciatella and pistachio"), description: t("Salmone affumicato su letto di rucola con stracciatella di bufala e crema al pistacchio", "Smoked salmon on a bed of arugula with buffalo stracciatella and pistachio cream"), price: "12,00" },
+      { name: t("Salmone, stracciatella di bufala e pistacchio", "Salmon, buffalo stracciatella and pistachio"), description: t("Salmone affumicato su letto di rucola con stracciatella di bufala e crema al pistacchio", "Smoked salmon on a bed of arugula with buffalo stracciatella and pistachio cream"), price: "14,00" },
       { name: t("Caponata di Pesce spada", "Swordfish Caponata"), price: "10,00" },
-      { name: t("Cocktail di Gamberi*", "Shrimp Cocktail*"), price: "10,00" },
-      { name: t("Tris affumicati di pesce", "Smoked Fish Trio"), description: t("Pesce spada, salmone e tonno affumicati", "Smoked swordfish, salmon and tuna"), price: "12,00" },
+      { name: t("Cocktail di Gamberi*", "Shrimp Cocktail*"), price: "12,00" },
+      { 
+    name: t("Crostino con tonno affumicato", "Smoked tuna crostino"), 
+    description: t("Crostino di pane con tonno affumicato e cipolla in agrodolce", "Toasted bread with smoked tuna and sweet and sour onion"), 
+    price: "12,00" 
+  },
+  { 
+    name: t("Pepata di cozze", "Peppered mussels"), 
+    description: t("Classica pepata di cozze con pepe nero e prezzemolo", "Classic mussels with black pepper and parsley"), 
+    price: "10,00" 
+  },
+  { 
+    name: t("Zuppa di cozze", "Mussel soup"), 
+    description: t("Tradizionale zuppa di cozze al pomodoro", "Traditional mussel soup with tomato"), 
+    price: "10,00" 
+  }
     ]
   },
   {
     id: "fritti",
     title: t("Fritti", "Fried Food"),
     items: [
-      { name: t("Patatine fritte*", "French fries*"), price: "3,00" },
+      { name: t("Patatine fritte*", "French fries*"), price: "4,00" },
       // ESEMPIO DI IMMAGINE:
       // Per aggiungere un'immagine a qualsiasi altro piatto, copia la sintassi qui sotto
       // aggiungendo `, image: "URL_DELL_IMMAGINE"` alla fine dell'oggetto del piatto. esempio: aggiungi alla fine -> " , image: "https://picsum.photos/seed/mistofritto/800/600" "
-      { name: t("Misto fritto x2", "Mixed fried food x2"), description: t("Patatine*, panelle, crocchè, anelli di cipolla* e verdure pastellate", "Fries*, chickpea fritters, potato croquettes, onion rings* and battered vegetables"), price: "4,00"},
+      { name: t("Misto fritto x2", "Mixed fried food x2"), description: t("Patatine*, panelle, crocchè, anelli di cipolla* e verdure pastellate", "Fries*, chickpea fritters, potato croquettes, onion rings* and battered vegetables"), price: "6,00"},
       { name: t("Anelli di cipolla*", "Onion rings*"), price: "4,00" },
       { name: t("Verdure pastellate", "Battered vegetables"), price: "4,00" },
-      { name: t("Mozzarelline stick*", "Mozzarella sticks*"), price: "5,00" },
+      { name: t("Mozzarelline stick*", "Mozzarella sticks*"), price: "6,00" },
       { name: t("Olive Ascolane*", "Ascolana Olives*"), price: "5,00" }
     ]
   },
@@ -58,8 +72,16 @@ export const getMenuData = (t: (it: string, en: string) => string): MenuCategory
     title: t("Primi Rustici", "Rustic First Courses"),
     items: [
       { name: t("Busiate al pistacchio", "Busiate with pistachio"), description: t("Olio d'aglio, radicchio, pomodorini, speck, pesto di pistacchio, panna e prezzemolo", "Garlic oil, radicchio, cherry tomatoes, speck, pistachio pesto, cream and parsley"), price: "12,00" },
-      { name: t("Maccheroni con salsiccia, zucchina fritta alla palermitana e scaglie di ricotta salata", "Macaroni with sausage, Palermo-style fried zucchini and salted ricotta flakes"), description: t("Olio d'aglio, salsiccia, zucchine, ricotta salata, prezzemolo", "Garlic oil, sausage, zucchini, salted ricotta, parsley"), price: "12,00" },
-      { name: t("Tagliatelle con Ragù di cinghiale", "Tagliatelle with Wild Boar Ragù"), description: t("Pasta all'uovo, ragù di cinghiale e prezzemolo", "Egg pasta, wild boar ragù and parsley"), price: "14,00" },
+      { 
+      name: t("Lunette ai quattro formaggi con crema al gorgonzola", "Four cheese lunette with gorgonzola cream"), 
+      description: t("Ravioli ai 4 formaggi con crema al gorgonzola", "Four cheese ravioli with gorgonzola cream"), 
+      price: "16,00" // <-- Inserisci il prezzo corretto
+    },
+    { 
+      name: t("Girasoli mascarpone e noci con salsiccia e porri", "Mascarpone and walnut girasoli with sausage and leeks"), 
+      description: t("Ravioli con ripieno di mascarpone e noci con crema di porri e salsiccia", "Ravioli stuffed with mascarpone and walnuts with leek cream and sausage"), 
+      price: "14,00" // <-- Inserisci il prezzo corretto
+    },
       { name: t("Trofie Pugliesi \"a modo mio\"", "Apulian Trofie \"my way\""), description: t("Olio d'aglio, melanzane, zucchine, datterino giallo e rosso, e pesto di basilico", "Garlic oil, eggplants, zucchini, yellow and red datterino tomatoes, and basil pesto"), price: "12,00" },
     ]
   },
@@ -67,10 +89,27 @@ export const getMenuData = (t: (it: string, en: string) => string): MenuCategory
     id: "primi-pesce",
     title: t("Primi di Pesce", "Seafood First Courses"),
     items: [
-      { name: t("Busiate Gamberi e Pistacchio", "Busiate with Shrimp and Pistachio"), description: t("Olio d'aglio, gamberi*, pesto di pistacchio, granella di pistacchio e prezzemolo", "Garlic oil, shrimp*, pistachio pesto, chopped pistachios and parsley"), price: "13,00" },
-      { name: t("Bavette alle Vongole", "Bavette with Clams"), description: t("Olio d'aglio, Vongole, prezzemolo", "Garlic oil, clams, parsley"), price: "18,00" },
-      { name: t("Tagliatelle con Spada, datterino giallo, melanzana fritta e mentuccia", "Tagliatelle with Swordfish, yellow datterino, fried eggplant and mint"), description: t("Olio d'aglio, pasta all'uovo, pescespada*, datterino giallo, melanzane, menta", "Garlic oil, egg pasta, swordfish*, yellow datterino, eggplants, mint"), price: "14,00" },
-      { name: t("Ravioli di Cernia in Salsa ai Crostacei e Bottarga", "Grouper Ravioli in Crustacean and Bottarga Sauce"), description: t("Olio d'aglio, salsa di pomodoro, gamberi*, scampi*, bottarga e prezzemolo", "Garlic oil, tomato sauce, shrimp*, scampi*, bottarga and parsley"), price: "18,00" }
+
+      { 
+      name: t("Busiate Gamberi e Pistacchio", "Busiate with Shrimp and Pistachio"), 
+      description: t("Olio d'aglio, gamberi*, pesto di pistacchio, granella di pistacchio e prezzemolo", "Garlic oil, shrimp*, pistachio pesto, chopped pistachios and parsley"), 
+      price: "15,00" 
+    },
+    { 
+      name: t("Garganelli con cuberoll di ricciola, chips di melanzane e dressing ai ricci", "Garganelli with amberjack cuberoll, eggplant chips and sea urchin dressing"), 
+     description: t("Olio d'aglio, ricciola, datterino giallo e rosso, melanzane e ricci", "Garlic oil, amberjack, yellow and red datterino tomatoes, eggplants and sea urchins"),
+      price: "16,00" 
+    },
+    { 
+      name: t("Maccheroni al torchio con nero di seppia e tartare di gambero bianco", "Maccheroni al torchio with squid ink and white shrimp tartare"), 
+      description: t("Olio d'aglio, salsa al nero di seppia, tartare di gambero bianco", "Garlic oil, squid ink sauce, white shrimp tartare"), 
+      price: "16,00" 
+    },
+    { 
+      name: t("Spaghetti alle vongole", "Spaghetti with clams"), 
+      description: t("Olio d'aglio, vongole, prezzemolo", "Garlic oil, clams, parsley"), 
+      price: "18,00" 
+    }
     ]
   },
   {
@@ -211,6 +250,7 @@ export const getMenuData = (t: (it: string, en: string) => string): MenuCategory
       { name: t("Wurstel", "Wurstel"), price: "0,50" },
       { name: t("Fiordilatte", "Fiordilatte mozzarella"), price: "1,00" },
       { name: t("Salame dolce o piccante", "Sweet or spicy salami"), price: "1,00" },
+      { name: t("Salame finocchiona", "finocchiona salame"), price: "2,00" },
       { name: t("Patatine", "French fries"), price: "1,00" },
       { name: t("Pomodorini", "Cherry tomatoes"), price: "1,00" },
       { name: t("Tonno", "Tuna"), price: "1,00" },
