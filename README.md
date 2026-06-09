@@ -1,6 +1,6 @@
 # 🐉 La Locanda del Drago - Digital Menu
 
-Benvenuti nel repository ufficiale della **Locanda del Drago**. Questo è un sito web moderno, veloce e responsive sviluppato in **React** per permettere ai clienti della locanda di consultare il menù digitale tramite QR Code o link diretto.
+Benvenuti nel repository ufficiale della **Locanda del Drago**. Questo è un sito web moderno, veloce e responsive sviluppato in **React** per permettere ai clienti della locanda di conoscere il ristorante, ciò che proponiamo ai clienti e soprattutto di consultare il menù digitale.
 
 ---
 
@@ -20,7 +20,7 @@ Benvenuti nel repository ufficiale della **Locanda del Drago**. Questo è un sit
 
 ## 🛠️ Tecnologie Utilizzate
 - **Frontend:** [React.js](https://reactjs.org/)
-- **Styling:** CSS3 / Styled Components (o la libreria che stai usando)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 - **Hosting & CI/CD:** [Netlify](https://www.netlify.com/)
 - **Domain Management:** [Hosting Aruba](https://hosting.aruba.it/)
 
