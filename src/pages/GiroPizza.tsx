@@ -61,7 +61,7 @@ export default function GiroPizza() {
     ],
     primi: [
       t("Busiate al pistacchio", "Busiate pasta with pistachio"),
-      t("Trofie al ragù di cinghiale", "Trofie with wild boar ragù")
+      t("Trofie Pugliesi", "Trofie Pugliesi")
     ],
     drinks: [
       t("Acqua", "Water"),
@@ -412,7 +412,7 @@ export default function GiroPizza() {
                   <span className="font-bold text-bordeaux">{t("+3 euro", "+3 euro")}</span>
                 </div>
                 <div className="flex justify-between items-center border-b border-oro/10 pb-2">
-                  <span>{t("Servizio torta (20+ persone)", "Cake service (20+ people)")}</span>
+                  <span>{t("Servizio torta", "Cake service")}</span>
                   <span className="font-bold text-bordeaux">{t("0,50 euro / pers.", "0.50 euro / pers.")}</span>
                 </div>
                 <div className="flex items-center gap-2 text-bordeaux font-bold pt-2">

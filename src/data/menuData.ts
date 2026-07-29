@@ -24,8 +24,8 @@ export const getMenuData = (t: (it: string, en: string) => string): MenuCategory
       { name: t("Focaccine con Ricotta (4 pz)", "Small Focaccia with Ricotta (4 pcs)"), price: "4,00", image: "foto-menu/focaric.webp" },
       { name: t("Focaccine con Porchetta (4 pz)", "Small Focaccia with Porchetta (4 pcs)"), price: "5,00" },
       { name: t("Quadrifoglio di focaccine (4 pz)", "Four-leaf clover of small focaccias (4 pcs)"), description: t("4 Focaccine: 1 milza, 1 ricotta, 1 porchetta e 1 panelle e crocchè", "4 Small Focaccias: 1 spleen, 1 ricotta, 1 porchetta and 1 chickpea fritters & potato croquettes"), price: "4,50", image: "foto-menu/quadrifoglio.webp"  },
-      { name: t("Involtini Speck e Bufala (4 pz)", "Speck and Buffalo Mozzarella Rolls (4 pcs)"), price: "6,00" },
-      { name: t("Caponata di Melanzane", "Eggplant Caponata"), description: t("Melanzane, capperi, sedano e concentrato di pomodoro", "Eggplants, capers, celery and tomato paste"), price: "6,00" },
+      { name: t("Involtini Speck e Bufala (4 pz)", "Speck and Buffalo Mozzarella Rolls (4 pcs)"), price: "6,00", image: "foto-menu/speckbufala.webp" },
+      { name: t("Caponata di Melanzane", "Eggplant Caponata"), description: t("Melanzane, capperi, sedano e concentrato di pomodoro", "Eggplants, capers, celery and tomato paste"), price: "6,00" , image: "foto-menu/caponata.webp" },
     ]
   },
   {
@@ -71,16 +71,18 @@ export const getMenuData = (t: (it: string, en: string) => string): MenuCategory
     id: "primi-rustici",
     title: t("Primi Rustici", "Rustic First Courses"),
     items: [
-      { name: t("Busiate al pistacchio", "Busiate with pistachio"), description: t("Olio d'aglio, radicchio, pomodorini, speck, pesto di pistacchio, panna e prezzemolo", "Garlic oil, radicchio, cherry tomatoes, speck, pistachio pesto, cream and parsley"), price: "12,00" },
+      { name: t("Busiate al pistacchio", "Busiate with pistachio"), description: t("Olio d'aglio, radicchio, pomodorini, speck, pesto di pistacchio, panna e prezzemolo", "Garlic oil, radicchio, cherry tomatoes, speck, pistachio pesto, cream and parsley"), price: "12,00", image: "foto-menu/busiatepist.webp" },
       { 
       name: t("Lunette ai quattro formaggi con crema al gorgonzola", "Four cheese lunette with gorgonzola cream"), 
       description: t("Ravioli ai 4 formaggi con crema al gorgonzola", "Four cheese ravioli with gorgonzola cream"), 
-      price: "16,00" // <-- Inserisci il prezzo corretto
+      price: "16,00" , 
+      image: "foto-menu/quattroform.webp" 
     },
     { 
       name: t("Girasoli mascarpone e noci con salsiccia e porri", "Mascarpone and walnut girasoli with sausage and leeks"), 
       description: t("Ravioli con ripieno di mascarpone e noci con crema di porri e salsiccia", "Ravioli stuffed with mascarpone and walnuts with leek cream and sausage"), 
-      price: "14,00" // <-- Inserisci il prezzo corretto
+      price: "14,00" , 
+      image: "foto-menu/girasolsalsiccia.webp"
     },
       { name: t("Trofie Pugliesi \"a modo mio\"", "Apulian Trofie \"my way\""), description: t("Olio d'aglio, melanzane, zucchine, datterino giallo e rosso, e pesto di basilico", "Garlic oil, eggplants, zucchini, yellow and red datterino tomatoes, and basil pesto"), price: "12,00" },
     ]
@@ -98,12 +100,14 @@ export const getMenuData = (t: (it: string, en: string) => string): MenuCategory
     { 
       name: t("Garganelli con cuberoll di ricciola, chips di melanzane e dressing ai ricci", "Garganelli with amberjack cuberoll, eggplant chips and sea urchin dressing"), 
      description: t("Olio d'aglio, ricciola, datterino giallo e rosso, melanzane e ricci", "Garlic oil, amberjack, yellow and red datterino tomatoes, eggplants and sea urchins"),
-      price: "16,00" 
+      price: "16,00" , 
+      image: "foto-menu/ricciola.webp"
     },
     { 
       name: t("Maccheroni al torchio con nero di seppia e tartare di gambero bianco", "Maccheroni al torchio with squid ink and white shrimp tartare"), 
       description: t("Olio d'aglio, salsa al nero di seppia, tartare di gambero bianco", "Garlic oil, squid ink sauce, white shrimp tartare"), 
-      price: "16,00" 
+      price: "16,00" , 
+      image: "foto-menu/neroseppia.webp"
     },
     { 
       name: t("Spaghetti alle vongole", "Spaghetti with clams"), 
@@ -117,8 +121,8 @@ export const getMenuData = (t: (it: string, en: string) => string): MenuCategory
     title: t("Secondi di Carne", "Meat Main Courses"),
     items: [
       { name: t("Straccetti di Vitello con fonduta", "Veal Strips with fondue"), description: t("Trinca di vitello a listarelle su rucola con fonduta al parmigiano", "Veal strips on arugula with parmesan fondue"), price: "13,00" },
-      { name: t("Bistecca di Vitello", "Veal Steak"), description: t("Trinca di vitello", "Veal cut"), price: "10,00" },
-      { name: t("Tagliata di Vitello", "Sliced Veal"), description: t("Trinca di vitello su rucola con scaglie di Grana", "Veal cut on arugula with Grana flakes"), price: "14,00" },
+      { name: t("Bistecca di Vitello", "Veal Steak"), description: t("Trinca di vitello", "Veal cut"), price: "10,00" , image: "foto-menu/bistecca.webp"},
+      { name: t("Tagliata di Vitello", "Sliced Veal"), description: t("Trinca di vitello su rucola con scaglie di Grana", "Veal cut on arugula with Grana flakes"), price: "14,00", image: "foto-menu/tagliata.webp" },
       { name: t("Tagliata di Black Angus con rucola, pomodorini e pinoli tostati", "Sliced Black Angus with arugula, cherry tomatoes and toasted pine nuts"), price: "18,00" },
     ]
   },
@@ -126,7 +130,7 @@ export const getMenuData = (t: (it: string, en: string) => string): MenuCategory
     id: "secondi-pesce",
     title: t("Secondi di Pesce", "Seafood Main Courses"),
     items: [
-      { name: t("Filetto di Orata e Gamberone grigliati", "Grilled Sea Bream Fillet and King Prawn"), description: t("Orata* e gamberone* alla griglia", "Grilled sea bream* and king prawn*"), price: "18,00" },
+      { name: t("Filetto di Orata e Gamberone grigliati", "Grilled Sea Bream Fillet and King Prawn"), description: t("Orata* e gamberone* alla griglia", "Grilled sea bream* and king prawn*"), price: "18,00", image: "foto-menu/oratagamb.webp" },
       { name: t("Pescespada* alla griglia", "Grilled Swordfish*"), price: "12,00", image: "foto-menu/spadagrill.webp" },
       { name: t("Gamberone* alla griglia", "Grilled King Prawn*"), price: "13,00" },
       { name: t("Calamaro* alla griglia", "Grilled Squid*"), price: "13,00" }
