@@ -11,6 +11,7 @@ export interface MenuItem {
 export interface MenuCategory {
   id: string;
   title: string;
+  description?: string;
   items: MenuItem[];
 }
 
@@ -19,13 +20,14 @@ export const getMenuData = (t: (it: string, en: string) => string): MenuCategory
     id: "antipasti-rustici",
     title: t("Antipasti Rustici", "Rustic Appetizers"),
     items: [
-      { name: t("Bruschette al Pomodoro (4 pz)", "Tomato Bruschette (4 pcs)"), price: "4,00" , image: "foto-menu/bruschpom.webp"},
-      { name: t("Focaccine con Milza (4 pz)", "Small Focaccia with Spleen (4 pcs)"), price: "4,00", image: "foto-menu/focamilz.webp" },
-      { name: t("Focaccine con Ricotta (4 pz)", "Small Focaccia with Ricotta (4 pcs)"), price: "4,00", image: "foto-menu/focaric.webp" },
-      { name: t("Focaccine con Porchetta (4 pz)", "Small Focaccia with Porchetta (4 pcs)"), price: "5,00" },
-      { name: t("Quadrifoglio di focaccine (4 pz)", "Four-leaf clover of small focaccias (4 pcs)"), description: t("4 Focaccine: 1 milza, 1 ricotta, 1 porchetta e 1 panelle e crocchè", "4 Small Focaccias: 1 spleen, 1 ricotta, 1 porchetta and 1 chickpea fritters & potato croquettes"), price: "4,50", image: "foto-menu/quadrifoglio.webp"  },
-      { name: t("Involtini Speck e Bufala (4 pz)", "Speck and Buffalo Mozzarella Rolls (4 pcs)"), price: "6,00", image: "foto-menu/speckbufala.webp" },
-      { name: t("Caponata di Melanzane", "Eggplant Caponata"), description: t("Melanzane, capperi, sedano e concentrato di pomodoro", "Eggplants, capers, celery and tomato paste"), price: "6,00" , image: "foto-menu/caponata.webp" },
+      { name: t("Bruschette al pomodoro (4 pz)", "Tomato Bruschette (4 pcs)"), price: "5,00", image: "foto-menu/bruschpom.webp" },
+      { name: t("Focaccine con Milza (4 pz)", "Small Focaccia with Spleen (4 pcs)"), price: "5,00", image: "foto-menu/focamilz.webp" },
+      { name: t("Focaccine con Ricotta (4 pz)", "Small Focaccia with Ricotta (4 pcs)"), price: "5,00", image: "foto-menu/focaric.webp" },
+      { name: t("Focaccine con porchetta (4 pz)", "Small Focaccia with Porchetta (4 pcs)"), price: "6,00" },
+      { name: t("Involtini speck e bufala (4 pz)", "Speck and Buffalo Mozzarella Rolls (4 pcs)"), price: "6,00", image: "foto-menu/speckbufala.webp" },
+      { name: t("Caponata di melanzane", "Eggplant Caponata"), description: t("Melanzane, sedano, capperi e pomodoro", "Eggplants, celery, capers and tomato"), price: "6,00" },
+      { name: t("Crostino di pane nero con zucca rossa all'agro, stracchino e julienne di speck", "Black bread crostino with sweet and sour red pumpkin, stracchino and speck julienne"), price: "7,00" },
+      { name: t("Piatto del drago", "Dragon's Platter"), description: t("Focaccina con milza; focaccina con ricotta; focaccina con mortadella, bufala e pesto di pistacchio; bruschetta con zucca e caponatina", "Spleen focaccina; ricotta focaccina; mortadella, buffalo and pistachio pesto focaccina; pumpkin and caponatina bruschetta"), price: "8,00" },
     ]
   },
   {
@@ -33,118 +35,74 @@ export const getMenuData = (t: (it: string, en: string) => string): MenuCategory
     title: t("Antipasti di Pesce", "Seafood Appetizers"),
     items: [
       { name: t("Salmone, stracciatella di bufala e pistacchio", "Salmon, buffalo stracciatella and pistachio"), description: t("Salmone affumicato su letto di rucola con stracciatella di bufala e crema al pistacchio", "Smoked salmon on a bed of arugula with buffalo stracciatella and pistachio cream"), price: "14,00" },
-      { name: t("Caponata di Pesce spada", "Swordfish Caponata"), price: "10,00" },
-      { name: t("Cocktail di Gamberi*", "Shrimp Cocktail*"), price: "12,00" },
-      { 
-    name: t("Crostino con tonno affumicato", "Smoked tuna crostino"), 
-    description: t("Crostino di pane con tonno affumicato e cipolla in agrodolce", "Toasted bread with smoked tuna and sweet and sour onion"), 
-    price: "12,00" 
-  },
-  { 
-    name: t("Pepata di cozze", "Peppered mussels"), 
-    description: t("Classica pepata di cozze con pepe nero e prezzemolo", "Classic mussels with black pepper and parsley"), 
-    price: "10,00" 
-  },
-  { 
-    name: t("Zuppa di cozze", "Mussel soup"), 
-    description: t("Tradizionale zuppa di cozze al pomodoro", "Traditional mussel soup with tomato"), 
-    price: "10,00" 
-  }
+      { name: t("Caponata di pescespada*", "Swordfish Caponata*"), price: "10,00" },
+      { name: t("Cocktail di gamberi*", "Shrimp Cocktail*"), price: "12,00" },
+      { name: t("Spada affumicato con rucola e sfere al limone", "Smoked swordfish with arugula and lemon spheres"), price: "14,00" },
     ]
   },
   {
     id: "fritti",
     title: t("Fritti", "Fried Food"),
     items: [
-      { name: t("Patatine fritte*", "French fries*"), price: "4,00" },
-      // ESEMPIO DI IMMAGINE:
-      // Per aggiungere un'immagine a qualsiasi altro piatto, copia la sintassi qui sotto
-      // aggiungendo `, image: "URL_DELL_IMMAGINE"` alla fine dell'oggetto del piatto. esempio: aggiungi alla fine -> " , image: "https://picsum.photos/seed/mistofritto/800/600" "
-      { name: t("Misto fritto x2", "Mixed fried food x2"), description: t("Patatine*, panelle, crocchè, anelli di cipolla* e verdure pastellate", "Fries*, chickpea fritters, potato croquettes, onion rings* and battered vegetables"), price: "6,00"},
+      { name: t("Patatine*", "French fries*"), price: "4,00" },
       { name: t("Anelli di cipolla*", "Onion rings*"), price: "4,00" },
       { name: t("Verdure pastellate", "Battered vegetables"), price: "4,00" },
+      { name: t("Misto fritto per due", "Mixed fried food for two"), description: t("Patatine*, panelle, crocchè, anelli di cipolla* e verdure pastellate", "Fries*, chickpea fritters, potato croquettes, onion rings* and battered vegetables"), price: "6,00" },
+      { name: t("Patatine fritte* con vellutata al parmigiano e crumble di bacon", "French fries* with parmesan cream and bacon crumble"), price: "7,00" },
       { name: t("Mozzarelline stick*", "Mozzarella sticks*"), price: "6,00" },
-      { name: t("Olive Ascolane*", "Ascolana Olives*"), price: "5,00" }
     ]
   },
   {
-    id: "primi-rustici",
-    title: t("Primi Rustici", "Rustic First Courses"),
+    id: "primi-carne",
+    title: t("Primi di Carne", "Meat First Courses"),
     items: [
       { name: t("Busiate al pistacchio", "Busiate with pistachio"), description: t("Olio d'aglio, radicchio, pomodorini, speck, pesto di pistacchio, panna e prezzemolo", "Garlic oil, radicchio, cherry tomatoes, speck, pistachio pesto, cream and parsley"), price: "12,00", image: "foto-menu/busiatepist.webp" },
-      { 
-      name: t("Lunette ai quattro formaggi con crema al gorgonzola", "Four cheese lunette with gorgonzola cream"), 
-      description: t("Ravioli ai 4 formaggi con crema al gorgonzola", "Four cheese ravioli with gorgonzola cream"), 
-      price: "16,00" , 
-      image: "foto-menu/quattroform.webp" 
-    },
-    { 
-      name: t("Girasoli mascarpone e noci con salsiccia e porri", "Mascarpone and walnut girasoli with sausage and leeks"), 
-      description: t("Ravioli con ripieno di mascarpone e noci con crema di porri e salsiccia", "Ravioli stuffed with mascarpone and walnuts with leek cream and sausage"), 
-      price: "14,00" , 
-      image: "foto-menu/girasolsalsiccia.webp"
-    },
-      { name: t("Trofie Pugliesi \"a modo mio\"", "Apulian Trofie \"my way\""), description: t("Olio d'aglio, melanzane, zucchine, datterino giallo e rosso, e pesto di basilico", "Garlic oil, eggplants, zucchini, yellow and red datterino tomatoes, and basil pesto"), price: "12,00" },
+      { name: t("Lunette* ai quattro formaggi con crema al gorgonzola", "Lunette* with four cheeses and gorgonzola cream"), description: t("Pasta ripiena ai quattro formaggi con crema al gorgonzola", "Pasta stuffed with four cheeses with gorgonzola cream"), price: "16,00" , 
+      image: "foto-menu/quattroform.webp"  },
+      { name: t("Girasoli* mascarpone e noci con battuto di manzo bianco e pesto di rucola", "Girasoli* with mascarpone and walnuts with white beef tartare and arugula pesto"), price: "14,00" },
+      { name: t("Tagliolini al sugo contadino", "Tagliolini with country-style sauce"), description: t("Salsa di pomodoro, salsiccia, puntine e polpette di vitello", "Tomato sauce, sausage, ribs and veal meatballs"), price: "14,00" },
+      { name: t("Busiate al ragù di cinghiale e finocchietto", "Busiate with wild boar ragù and wild fennel"), price: "12,00" },
     ]
   },
   {
     id: "primi-pesce",
     title: t("Primi di Pesce", "Seafood First Courses"),
     items: [
-
-      { 
-      name: t("Busiate Gamberi e Pistacchio", "Busiate with Shrimp and Pistachio"), 
-      description: t("Olio d'aglio, gamberi*, pesto di pistacchio, granella di pistacchio e prezzemolo", "Garlic oil, shrimp*, pistachio pesto, chopped pistachios and parsley"), 
-      price: "15,00" 
-    },
-    { 
-      name: t("Garganelli con cuberoll di ricciola, chips di melanzane e dressing ai ricci", "Garganelli with amberjack cuberoll, eggplant chips and sea urchin dressing"), 
-     description: t("Olio d'aglio, ricciola, datterino giallo e rosso, melanzane e ricci", "Garlic oil, amberjack, yellow and red datterino tomatoes, eggplants and sea urchins"),
-      price: "16,00" , 
-      image: "foto-menu/ricciola.webp"
-    },
-    { 
-      name: t("Maccheroni al torchio con nero di seppia e tartare di gambero bianco", "Maccheroni al torchio with squid ink and white shrimp tartare"), 
-      description: t("Olio d'aglio, salsa al nero di seppia, tartare di gambero bianco", "Garlic oil, squid ink sauce, white shrimp tartare"), 
-      price: "16,00" , 
-      image: "foto-menu/neroseppia.webp"
-    },
-    { 
-      name: t("Spaghetti alle vongole", "Spaghetti with clams"), 
-      description: t("Olio d'aglio, vongole, prezzemolo", "Garlic oil, clams, parsley"), 
-      price: "18,00" 
-    }
+      { name: t("Busiate gamberi e pistacchio", "Busiate with shrimp and pistachio"), description: t("Olio d'aglio, gamberi*, pesto e granella di pistacchio, prezzemolo", "Garlic oil, shrimp*, pistachio pesto and chopped pistachios, parsley"), price: "15,00" },
+      { name: t("Garganelli* con crema di zucchine, gamberetti* e stracciatella di bufala", "Garganelli* with zucchini cream, shrimp* and buffalo stracciatella"), description: t("Olio d'aglio, prezzemolo, crema di zucchine, gamberetti* e stracciatella", "Garlic oil, parsley, zucchini cream, shrimp* and stracciatella"), price: "16,00" },
+      { name: t("Maccheroni* al torchio con ragù di calamari e spuma di ricotta", "Maccheroni* al torchio with squid ragù and ricotta mousse"), description: t("Olio d'aglio, ragù di calamari* e spuma di ricotta", "Garlic oil, squid* ragù and ricotta mousse"), price: "16,00" },
+      { name: t("Spaghetti alle vongole, gambero, pomodorino e pistacchio", "Spaghetti with clams, shrimp, cherry tomato and pistachio"), description: t("Olio d'aglio, vongole, gambero*, pomodorino, pistacchio e prezzemolo", "Garlic oil, clams, shrimp*, cherry tomato, pistachio and parsley"), price: "20,00" },
     ]
   },
   {
     id: "secondi-carne",
     title: t("Secondi di Carne", "Meat Main Courses"),
     items: [
-      { name: t("Straccetti di Vitello con fonduta", "Veal Strips with fondue"), description: t("Trinca di vitello a listarelle su rucola con fonduta al parmigiano", "Veal strips on arugula with parmesan fondue"), price: "13,00" },
-      { name: t("Bistecca di Vitello", "Veal Steak"), description: t("Trinca di vitello", "Veal cut"), price: "10,00" , image: "foto-menu/bistecca.webp"},
-      { name: t("Tagliata di Vitello", "Sliced Veal"), description: t("Trinca di vitello su rucola con scaglie di Grana", "Veal cut on arugula with Grana flakes"), price: "14,00", image: "foto-menu/tagliata.webp" },
-      { name: t("Tagliata di Black Angus con rucola, pomodorini e pinoli tostati", "Sliced Black Angus with arugula, cherry tomatoes and toasted pine nuts"), price: "18,00" },
+      { name: t("Straccetti di vitello con fonduta", "Veal strips with fondue"), description: t("Trinca di vitello a listarelle su rucola con fonduta al parmigiano", "Veal strips on arugula with parmesan fondue"), price: "13,00" },
+      { name: t("Tagliata di vitello", "Sliced veal"), description: t("Trinca di vitello su rucola con scaglie di Grana", "Veal cut on arugula with Grana flakes"), price: "16,00", image: "foto-menu/tagliata.webp" },
+      { name: t("Tagliata di Black Angus con rucola, pomodorini e pinoli tostati", "Sliced Black Angus with arugula, cherry tomatoes and toasted pine nuts"), price: "20,00" },
+      { name: t("Costata di scottona con osso (700 g)", "Bone-in scottona rib (700 g)"), price: "22,00" },
     ]
   },
   {
     id: "secondi-pesce",
     title: t("Secondi di Pesce", "Seafood Main Courses"),
     items: [
-      { name: t("Filetto di Orata e Gamberone grigliati", "Grilled Sea Bream Fillet and King Prawn"), description: t("Orata* e gamberone* alla griglia", "Grilled sea bream* and king prawn*"), price: "18,00", image: "foto-menu/oratagamb.webp" },
-      { name: t("Pescespada* alla griglia", "Grilled Swordfish*"), price: "12,00", image: "foto-menu/spadagrill.webp" },
-      { name: t("Gamberone* alla griglia", "Grilled King Prawn*"), price: "13,00" },
-      { name: t("Calamaro* alla griglia", "Grilled Squid*"), price: "13,00" }
+      { name: t("Filetto di orata e gamberone grigliati", "Grilled sea bream fillet and king prawn"), description: t("Orata* e gamberone* alla griglia", "Grilled sea bream* and king prawn*"), price: "18,00", image: "foto-menu/oratagamb.webp" },
+      { name: t("Pescespada* alla griglia", "Grilled swordfish*"), price: "12,00", image: "foto-menu/spadagrill.webp" },
+      { name: t("Gamberone* alla griglia", "Grilled king prawn*"), price: "13,00" },
+      { name: t("Calamaro* alla griglia", "Grilled squid*"), price: "13,00" }
     ]
   },
   {
     id: "contorni",
     title: t("Contorni", "Side Dishes"),
     items: [
-      { name: t("Insalata Verde e Pomodoro", "Green Salad and Tomato"), description: t("Lattuga, pomodoro", "Lettuce, tomato"), price: "3,50" },
-      { name: t("Verdure grigliate", "Grilled Vegetables"), description: t("Melanzane, zucchine e radicchio", "Eggplants, zucchini and radicchio"), price: "4,00" },
-      { name: t("Insalata mista", "Mixed Salad"), description: t("Lattuga, pomodoro, radicchio, rucola e funghi", "Lettuce, tomato, radicchio, arugula and mushrooms"), price: "4,50" },
-      { name: t("Funghi trifolati", "Sautéed Mushrooms"), description: t("Olio d'aglio, funghi freschi", "Garlic oil, fresh mushrooms"), price: "3,00" },
-      { name: t("Spinaci all'agro", "Spinach with Lemon"), description: t("Olio d'aglio, spinaci*", "Garlic oil, spinach*"), price: "3,00" }
+      { name: t("Insalata verde e pomodoro", "Green salad and tomato"), description: t("Lattuga, pomodoro", "Lettuce, tomato"), price: "4,00" },
+      { name: t("Verdure grigliate", "Grilled vegetables"), description: t("Melanzane, zucchine e radicchio", "Eggplants, zucchini and radicchio"), price: "5,00" },
+      { name: t("Insalata mista", "Mixed salad"), description: t("Lattuga, pomodoro, radicchio, rucola e funghi", "Lettuce, tomato, radicchio, arugula and mushrooms"), price: "5,50" },
+      { name: t("Funghi trifolati", "Sautéed mushrooms"), description: t("Olio d'aglio, funghi freschi", "Garlic oil, fresh mushrooms"), price: "4,50" },
+      { name: t("Spinaci all'agro", "Spinach with lemon"), description: t("Olio d'aglio, spinaci*", "Garlic oil, spinach*"), price: "4,50" }
     ]
   },
   {
@@ -157,11 +115,11 @@ export const getMenuData = (t: (it: string, en: string) => string): MenuCategory
       { name: t("Diavola", "Diavola"), description: t("Salsa, fiordilatte, salame piccante, origano", "Tomato sauce, fiordilatte mozzarella, spicy salami, oregano"), price: "6,50" },
       { name: t("Napoli", "Napoli"), description: t("Salsa, fiordilatte, acciughe, origano", "Tomato sauce, fiordilatte mozzarella, anchovies, oregano"), price: "6,50" },
       { name: t("Romana", "Romana"), description: t("Salsa, fiordilatte, prosciutto cotto, origano", "Tomato sauce, fiordilatte mozzarella, cooked ham, oregano"), price: "6,50" },
-      { name: t("Quattro Gusti", "Four Tastes"), description: t("Salsa, fiordilatte, prosciutto cotto, carciofi, origano", "Tomato sauce, fiordilatte mozzarella, cooked ham, artichokes, oregano"), price: "7,00" },
+      { name: t("Quattro gusti", "Four tastes"), description: t("Salsa, fiordilatte, prosciutto cotto, carciofi, origano", "Tomato sauce, fiordilatte mozzarella, cooked ham, artichokes, oregano"), price: "7,00" },
       { name: t("Patatosa", "Patatosa"), description: t("Salsa, fiordilatte, patatine fritte*, wurstel, origano", "Tomato sauce, fiordilatte mozzarella, french fries*, wurstel, oregano"), price: "7,00" },
       { name: t("Tonnara", "Tonnara"), description: t("Salsa, fiordilatte, tonno, origano", "Tomato sauce, fiordilatte mozzarella, tuna, oregano"), price: "7,00" },
       { name: t("Campagnola", "Campagnola"), description: t("Salsa, pomodoro a fette, cacio a pezzi, acciughe, cipolla, mollica, origano", "Tomato sauce, sliced tomato, cheese pieces, anchovies, onion, breadcrumbs, oregano"), price: "7,50" },
-      { name: t("Quattro Formaggi", "Four Cheeses"), description: t("Fiordilatte, cacio a pezzi, gorgonzola, emmenthal, origano", "Fiordilatte mozzarella, cheese pieces, gorgonzola, emmenthal, oregano"), price: "7,50" },
+      { name: t("Quattro formaggi", "Four cheeses"), description: t("Fiordilatte, cacio a pezzi, gorgonzola, emmenthal, origano", "Fiordilatte mozzarella, cheese pieces, gorgonzola, emmenthal, oregano"), price: "7,50" },
       { name: t("Capricciosa", "Capricciosa"), description: t("Salsa, fiordilatte, prosciutto cotto, carciofi, funghi, olive, wurstel, origano", "Tomato sauce, fiordilatte mozzarella, cooked ham, artichokes, mushrooms, olives, wurstel, oregano"), price: "8,00" },
       { name: t("Parmigiana", "Parmigiana"), description: t("Salsa, fiordilatte, melanzane fritte, scaglie di grana, origano", "Tomato sauce, fiordilatte mozzarella, fried eggplants, grana flakes, oregano"), price: "8,00" },
       { name: t("San Daniele", "San Daniele"), description: t("Salsa, fiordilatte, prosciutto crudo, origano", "Tomato sauce, fiordilatte mozzarella, parma ham, oregano"), price: "8,00" },
@@ -169,11 +127,11 @@ export const getMenuData = (t: (it: string, en: string) => string): MenuCategory
   },
   {
     id: "pizze-locanda",
-    title: t("Pizze Locanda", "Locanda Pizzas"),
+    title: t("Pizze della Locanda", "Locanda Pizzas"),
     items: [
       { name: t("Calabrese", "Calabrese"), description: t("Salsa, fiordilatte, cacio a pezzi, peperoni, mollica, origano", "Tomato sauce, fiordilatte mozzarella, cheese pieces, peppers, breadcrumbs, oregano"), price: "7,50" },
       { name: t("Siciliana", "Siciliana"), description: t("Salsa, fiordilatte, melanzane fritte, ricotta fresca, origano", "Tomato sauce, fiordilatte mozzarella, fried eggplants, fresh ricotta, oregano"), price: "7,50" },
-      { name: t("Garofalo", "Garofalo"), description: t("Salsa, fiordilatte, pom. bruschetta (con aglio), scaglie di grana, origano", "Tomato sauce, fiordilatte mozzarella, bruschetta tomatoes (with garlic), grana flakes, oregano"), price: "8,00" },
+      { name: t("Garofalo", "Garofalo"), description: t("Salsa, fiordilatte, pomodoro bruschetta con aglio, scaglie di grana, origano", "Tomato sauce, fiordilatte mozzarella, bruschetta tomato with garlic, grana flakes, oregano"), price: "8,00" },
       { name: t("Friarielli", "Friarielli"), description: t("Salsa, fiordilatte, friarielli, salsiccia, gorgonzola, origano", "Tomato sauce, fiordilatte mozzarella, friarielli (broccoli rabe), sausage, gorgonzola, oregano"), price: "8,50" },
       { name: t("Pugliese", "Pugliese"), description: t("Salsa, fiordilatte, prosciutto cotto, funghi, cipolla, salsiccia, gorgonzola, origano", "Tomato sauce, fiordilatte mozzarella, cooked ham, mushrooms, onion, sausage, gorgonzola, oregano"), price: "8,50" },
       { name: t("Rosita", "Rosita"), description: t("Salsa, fiordilatte, prosciutto crudo, mascarpone, origano", "Tomato sauce, fiordilatte mozzarella, parma ham, mascarpone, oregano"), price: "8,50" },
@@ -189,10 +147,10 @@ export const getMenuData = (t: (it: string, en: string) => string): MenuCategory
     id: "pizze-bordo-ripieno",
     title: t("Pizze con Bordo Ripieno", "Stuffed Crust Pizzas"),
     items: [
-      { name: t("Margherita con Bordo", "Margherita with Stuffed Crust"), description: t("Salsa, fiordilatte, origano, bordo ripieno di fiordilatte", "Tomato sauce, fiordilatte mozzarella, oregano, crust stuffed with fiordilatte"), price: "7,50" },
+      { name: t("Margherita con bordo", "Margherita with Stuffed Crust"), description: t("Salsa, fiordilatte, origano, bordo ripieno di fiordilatte", "Tomato sauce, fiordilatte mozzarella, oregano, crust stuffed with fiordilatte"), price: "7,50" },
       { name: t("Ricottosa", "Ricottosa"), description: t("Salsa, fiordilatte, pomodorini, origano, bordo ripieno di ricotta", "Tomato sauce, fiordilatte mozzarella, cherry tomatoes, oregano, crust stuffed with ricotta"), price: "8,50" },
       { name: t("Lussuriosa", "Lussuriosa"), description: t("Salsa, fiordilatte, salsiccia, origano, bordo ripieno di ricotta e spinaci*", "Tomato sauce, fiordilatte mozzarella, sausage, oregano, crust stuffed with ricotta and spinach*"), price: "8,50" },
-      { name: t("Provenzale", "Provenzale"), description: t("Salsa, fiordilatte, funghi, melanzane fritte, origano, bordo ripieno di fiordilatte e prosiutto cotto", "Tomato sauce, fiordilatte mozzarella, mushrooms, fried eggplants, oregano, crust stuffed with fiordilatte and cooked ham"), price: "9,00" },
+      { name: t("Provenzale", "Provenzale"), description: t("Salsa, fiordilatte, funghi, melanzane fritte, origano, bordo ripieno di fiordilatte e prosciutto cotto", "Tomato sauce, fiordilatte mozzarella, mushrooms, fried eggplants, oregano, crust stuffed with fiordilatte and cooked ham"), price: "9,00" },
       { name: t("Delizia", "Delizia"), description: t("Salsa, fiordilatte, melanzane fritte, scaglie di grana, origano, bordo ripieno di ricotta e salsiccia", "Tomato sauce, fiordilatte mozzarella, fried eggplants, grana flakes, oregano, crust stuffed with ricotta and sausage"), price: "10,00" },
     ]
   },
@@ -229,36 +187,42 @@ export const getMenuData = (t: (it: string, en: string) => string): MenuCategory
     id: "schiacciate",
     title: t("Schiacciate", "Schiacciate (Stuffed Flatbreads)"),
     items: [
-      { name: t("Schiacciata Siciliana", "Sicilian Schiacciata"), description: t("Pomodoro a fette, cipolla, acciughe, cacio a pezzi, mollica, origano", "Sliced tomato, onion, anchovies, cheese pieces, breadcrumbs, oregano"), price: "7,50" },
-      { name: t("Panino Greco", "Greek Sandwich"), description: t("salsa, fiordilatte, prosciutto cotto, melanzane fritte, gorgonzola, cacio grattugiato, origano", "tomato sauce, fiordilatte mozzarella, cooked ham, fried eggplants, gorgonzola, grated cheese, oregano"), price: "8,00" },
-      { name: t("Schiacciata Classica", "Classic Schiacciata"), description: t("Fiordilatte, prosciutto cotto, funghi, melanzane fritte, pomodoro a fette, salame piccante, cacio grattugiato, origano", "Fiordilatte mozzarella, cooked ham, mushrooms, fried eggplants, sliced tomato, spicy salami, grated cheese, oregano"), price: "8,50" },
+      { name: t("Schiacciata siciliana", "Sicilian Schiacciata"), description: t("Pomodoro a fette, cipolla, acciughe, cacio a pezzi, mollica, origano", "Sliced tomato, onion, anchovies, cheese pieces, breadcrumbs, oregano"), price: "7,50" },
+      { name: t("Panino greco", "Greek Sandwich"), description: t("salsa, fiordilatte, prosciutto cotto, melanzane fritte, gorgonzola, cacio grattugiato, origano", "tomato sauce, fiordilatte mozzarella, cooked ham, fried eggplants, gorgonzola, grated cheese, oregano"), price: "8,00" },
+      { name: t("Schiacciata classica", "Classic Schiacciata"), description: t("Fiordilatte, prosciutto cotto, funghi, melanzane fritte, pomodoro a fette, salame piccante, cacio grattugiato, origano", "Fiordilatte mozzarella, cooked ham, mushrooms, fried eggplants, sliced tomato, spicy salami, grated cheese, oregano"), price: "8,50" },
     ]
   },
   {
-    id: "aggiunzioni-pizze",
-    title: t("Aggiunzioni per Pizze", "Pizza Additions"),
+    id: "aggiunte-pizze",
+    title: t("Aggiunte per Pizze", "Pizza Additions"),
     items: [
+      { name: t("Acciughe", "Anchovies"), price: "0,50" },
       { name: t("Caciocavallo a pezzi o grattuggiato", "Caciocavallo cheese pieces or grated"), price: "0,50" },
       { name: t("Capperi", "Capers"), price: "0,50" },
       { name: t("Carciofi", "Artichokes"), price: "0,50" },
-      { name: t("Emmenthal", "Emmenthal cheese"), price: "0,50" },
+      { name: t("Cipolla", "Onion"), price: "0,50" },
+      { name: t("Emmenthal", "Emmenthal"), price: "0,50" },
       { name: t("Funghi freschi", "Fresh mushrooms"), price: "0,50" },
+      { name: t("Gorgonzola", "Gorgonzola"), price: "0,50" },
+      { name: t("Mascarpone", "Mascarpone"), price: "0,50" },
       { name: t("Melanzane fritte", "Fried eggplants"), price: "0,50" },
       { name: t("Olive", "Olives"), price: "0,50" },
       { name: t("Peperoni", "Peppers"), price: "0,50" },
       { name: t("Pomodoro a fette", "Sliced tomato"), price: "0,50" },
       { name: t("Prosciutto cotto", "Cooked ham"), price: "0,50" },
       { name: t("Radicchio", "Radicchio"), price: "0,50" },
+      { name: t("Ricotta", "Ricotta"), price: "0,50" },
       { name: t("Rucola", "Arugula"), price: "0,50" },
       { name: t("Salsa", "Tomato sauce"), price: "0,50" },
       { name: t("Wurstel", "Wurstel"), price: "0,50" },
-      { name: t("Fiordilatte", "Fiordilatte mozzarella"), price: "1,00" },
+      { name: t("Salsiccia", "Sausage"), price: "0,50" },
+      { name: t("Fiordilatte", "Fiordilatte"), price: "1,00" },
       { name: t("Salame dolce o piccante", "Sweet or spicy salami"), price: "1,00" },
-      { name: t("Salame finocchiona", "finocchiona salame"), price: "2,00" },
       { name: t("Patatine", "French fries"), price: "1,00" },
       { name: t("Pomodorini", "Cherry tomatoes"), price: "1,00" },
       { name: t("Tonno", "Tuna"), price: "1,00" },
       { name: t("Scaglie di Grana", "Grana flakes"), price: "1,50" },
+      { name: t("Bacon", "Bacon"), price: "2,00" },
       { name: t("Bresaola", "Bresaola"), price: "2,00" },
       { name: t("Bufala", "Buffalo mozzarella"), price: "2,00" },
       { name: t("Funghi porcini", "Porcini mushrooms"), price: "2,00" },
@@ -267,74 +231,91 @@ export const getMenuData = (t: (it: string, en: string) => string): MenuCategory
       { name: t("Prosciutto crudo", "Parma ham"), price: "2,00" },
       { name: t("Speck", "Speck"), price: "2,00" },
       { name: t("Salmone", "Salmon"), price: "3,00" },
-      { name: t("Supplemento Pizza senza Glutine*", "Gluten-Free Pizza Supplement*"), price: "2,50" },
-      { name: t("Supplemento Farina di Tumminia", "Tumminia Flour Supplement"), price: "2,00" }
-    ]
-  },
-  {
-    id: "dessert",
-    title: t("Dessert", "Dessert"),
-    items: [
-      { name: t("Sorbetto al limone", "Lemon sorbet"), price: "2,50" },
-      { name: t("Tiramisù", "Tiramisù"), description: t("Anche senza lattosio", "Also lactose-free"), price: "5,00" },
-      { name: t("Cassatelle con ricotta", "Cassatelle with ricotta"), price: "3,50" },
-      { name: t("Semifreddo alla mandorla", "Almond Semifreddo"), description: t("Con topping al cioccolato", "With chocolate topping"), price: "4,00" },
-      { name: t("Semifreddo al pistacchio", "Pistachio Semifreddo"), description: t("Con topping ai frutti di bosco", "With berry topping"), price: "4,50" },
-      { name: t("Tortino cuore caldo", "Warm heart cake"), description: t("Con gelato alla vaniglia e topping al cioccolato", "With vanilla ice cream and chocolate topping"), price: "4,00" }
-    ]
-  },
-  {
-    id: "vini",
-    title: t("Vini", "Wines"),
-    items: [
-      { name: t("Ilare Nero d'Avola", "Ilare Nero d'Avola"), description: t("Sicilia Occidentale - Valle del Belice - Gibellina 13,00 % Vol. Vino fine e persistente, dallo spiccato profumo di frutta rossa matura. Secco ed equilibrato, ideale con carni grigliate", "Western Sicily - Belice Valley - Gibellina 13.00% Vol. Fine and persistent wine, with a distinct aroma of ripe red fruit. Dry and balanced, ideal with grilled meats"), price: "9,00" },
-      { name: t("Ilare Catarratto Chardonnay", "Ilare Catarratto Chardonnay"), description: t("Sicilia Occidentale - Valle del Belice - Gibellina 12,00 % Vol. Vino fine e persistente con profumo di frutta matura, pera e mela verde. Secco ed equilibrato, è raccomandato con pesce e formaggi freschi", "Western Sicily - Belice Valley - Gibellina 12.00% Vol. Fine and persistent wine with aromas of ripe fruit, pear and green apple. Dry and balanced, recommended with fish and fresh cheeses"), price: "9,00" },
-      { name: t("Barone di Montalto Cabernet Sauvignon-Nero d'Avola", "Barone di Montalto Cabernet Sauvignon-Nero d'Avola"), description: t("Sicilia Occidentale - Valle del Belice 13,50 % Vol. Vino rosso intenso con un bouqet di spezie, frutta scura, e tocchi di caramello. Si abbina con formaggi stagionati e carni grigliate", "Western Sicily - Belice Valley 13.50% Vol. Intense red wine with a bouquet of spices, dark fruit, and touches of caramel. Pairs well with aged cheeses and grilled meats"), price: "13,00" },
-      { name: t("Barone di Montalto Syrah", "Barone di Montalto Syrah"), description: t("Sicilia Occidentale - Valle del Belice 14,00 % Vol. Vino rosso violaceo intenso con aromi di violetta e ribes arricchiti da liquirizia e pepe nero. Si sposa bene con formaggi, funghi e carni", "Western Sicily - Belice Valley 14.00% Vol. Intense purplish red wine with aromas of violet and currant enriched by licorice and black pepper. Pairs well with cheeses, mushrooms and meats"), price: "16,00" },
-      { name: t("Barone di Montalto Grillo", "Barone di Montalto Grillo"), description: t("Sicilia Occidentale - Valle del Belice 12,50 % Vol. Vino bianco dalle intriganti note di cedro, frutti tropicali ed un palato armonico e vellutato. Si abbina bene a pesce, carni bianche, crostacei, verdure grigliate", "Western Sicily - Belice Valley 12.50% Vol. White wine with intriguing notes of cedar, tropical fruits and a harmonious and velvety palate. Pairs well with fish, white meats, crustaceans, grilled vegetables"), price: "14,00" },
-      { name: t("Barone di Montalto Cucunci Chardonnay Frizzante", "Barone di Montalto Cucunci Sparkling Chardonnay"), description: t("Sicilia Occidentale - Valle del Belice 11,50 % Vol. Cucunci, la pianta del cappero, è nota per crescere in luoghi con poca acqua. Vino frizzante aromatico con un'acidità fresca e aromi di frutti gialli e mela verde. Ideale come aperitivo, perfetto con antipasti di mare o verdure.", "Western Sicily - Belice Valley 11.50% Vol. Cucunci, the caper plant, is known to grow in places with little water. Aromatic sparkling wine with fresh acidity and aromas of yellow fruits and green apple. Ideal as an aperitif, perfect with seafood appetizers or vegetables."), price: "15,00" },
-      { name: t("Spumante Millesimato", "Millesimato Sparkling Wine"), price: "15,00" },
-      { name: t("Calice Ilare Nero d'Avola", "Glass of Ilare Nero d'Avola"), price: "4,00" },
-      { name: t("Calice Ilare Catarratto Chardonnay", "Glass of Ilare Catarratto Chardonnay"), price: "4,00" },
-      { name: t("Calice Barone di Montalto Grillo", "Glass of Barone di Montalto Grillo"), price: "5,00" },
-      { name: t("Calice Vino locale", "Glass of Local Wine"), price: "3,00" },
-      { name: t("Vino locale ½ L", "Local Wine ½ L"), price: "6,00" },
-      { name: t("Vino locale 1 L", "Local Wine 1 L"), price: "10,00" }
-    ]
-  },
-  {
-    id: "birre",
-    title: t("Birre", "Beers"),
-    items: [
-      { name: t("Moretti 33 cL", "Moretti 33 cL"), price: "2,00" },
-      { name: t("Beck's 33 cL", "Beck's 33 cL"), price: "2,50" },
-      { name: t("Ceres 33 cL", "Ceres 33 cL"), price: "3,50" },
-      { name: t("Birra analcolica 33 cL", "Non-alcoholic beer 33 cL"), price: "3,50" },
-      { name: t("Birra senza glutine 33 cL", "Gluten-free beer 33 cL"), price: "3,50" },
-      { name: t("Seme Dorato rossa 33 cL", "Seme Dorato red beer 33 cL"), price: "4,00" },
-      { name: t("Moretti 66 cL", "Moretti 66 cL"), price: "3,00" },
-      { name: t("Beck's 60 cL", "Beck's 60 cL"), price: "3,50" },
-      { name: t("Moretti Baffo d'Oro 66 cL", "Moretti Baffo d'Oro 66 cL"), price: "4,00" },
-      { name: t("Birra dello Stretto Premium 66 cL", "Birra dello Stretto Premium 66 cL"), price: "4,50" },
-      { name: t("Bionda alla spina 0,20 L", "Draft blonde beer 0.20 L"), price: "3,50" },
-      { name: t("Bionda alla spina 0,40 L", "Draft blonde beer 0.40 L"), price: "4,50" },
-      { name: t("Artigianale Epica 33 cL", "Epica Craft Beer 33 cL"), description: t("(Tifeo, Polifemo, Hermes, Cerere)", "(Tifeo, Polifemo, Hermes, Cerere)"), price: "5,50" }
+      { name: t("Supplemento pizza senza glutine*", "Gluten-free pizza supplement*"), price: "2,50" }
     ]
   },
   {
     id: "bibite",
     title: t("Bibite", "Drinks"),
     items: [
-      { name: t("Acqua Naturale ½ L", "Still Water ½ L"), price: "1,00" },
-      { name: t("Acqua Gasata ½ L", "Sparkling Water ½ L"), price: "1,00" },
-      { name: t("Acqua Naturale 1 L", "Still Water 1 L"), price: "2,00" },
-      { name: t("Acqua Gasata 1 L", "Sparkling Water 1 L"), price: "2,00" },
-      { name: t("Coca Cola lattina 33 cL", "Coca Cola can 33 cL"), price: "2,00" },
-      { name: t("Coca Cola zero lattina 33 cL", "Coca Cola Zero can 33 cL"), price: "2,00" },
-      { name: t("Fanta lattina 33 cL", "Fanta can 33 cL"), price: "2,00" },
-      { name: t("Sprite lattina 33 cL", "Sprite can 33 cL"), price: "2,00" },
-      { name: t("Chinotto lattina 33 cL", "Chinotto can 33 cL"), price: "2,00" },
+      { name: t("Acqua naturale ½ L", "Still water ½ L"), price: "1,00" },
+      { name: t("Acqua gasata ½ L", "Sparkling water ½ L"), price: "1,00" },
+      { name: t("Acqua naturale 1 L", "Still water 1 L"), price: "2,00" },
+      { name: t("Acqua gasata 1 L", "Sparkling water 1 L"), price: "2,00" },
+      { name: t("Coca Cola lattina 33 cl", "Coca Cola can 33 cl"), price: "2,00" },
+      { name: t("Coca Cola Zero lattina 33 cl", "Coca Cola Zero can 33 cl"), price: "2,00" },
+      { name: t("Fanta lattina 33 cl", "Fanta can 33 cl"), price: "2,00" },
+      { name: t("Sprite lattina 33 cl", "Sprite can 33 cl"), price: "2,00" },
+      { name: t("Chinotto lattina 33 cl", "Chinotto can 33 cl"), price: "2,00" },
       { name: t("Coca Cola in vetro 1 L", "Coca Cola glass bottle 1 L"), price: "4,00" }
+    ]
+  },
+  {
+    id: "birre",
+    title: t("Birre", "Beers"),
+    items: [
+      { name: t("Moretti 33 cl", "Moretti 33 cl"), price: "2,00" },
+      { name: t("Beck's 33 cl", "Beck's 33 cl"), price: "2,50" },
+      { name: t("Ceres 33 cl", "Ceres 33 cl"), price: "3,50" },
+      { name: t("Birra analcolica 33 cl", "Non-alcoholic beer 33 cl"), price: "3,50" },
+      { name: t("Birra senza glutine 33 cl", "Gluten-free beer 33 cl"), price: "3,50" },
+      { name: t("Seme rossa 33 cl", "Seme red beer 33 cl"), price: "4,00" },
+      { name: t("Moretti 66 cl", "Moretti 66 cl"), price: "3,00" },
+      { name: t("Beck's 60 cl", "Beck's 60 cl"), price: "3,50" },
+      { name: t("Moretti Baffo d'Oro 66 cl", "Moretti Baffo d'Oro 66 cl"), price: "4,00" },
+      { name: t("Birra dello Stretto Premium 66 cl", "Birra dello Stretto Premium 66 cl"), price: "4,50" },
+      { name: t("Bionda alla spina 0,20 L", "Draft blonde beer 0.20 L"), price: "3,50" },
+      { name: t("Bionda alla spina 0,40 L", "Draft blonde beer 0.40 L"), price: "4,50" },
+      { name: t("Artigianale Epica 33 cl", "Epica Craft Beer 33 cl"), description: t("Tifeo, Polifemo, Hermes, Cerere", "Tifeo, Polifemo, Hermes, Cerere"), price: "5,50" }
+    ]
+  },
+  {
+    id: "vini",
+    title: t("Vini", "Wines"),
+    items: [
+      { name: t("Ilare Nero d'Avola", "Ilare Nero d'Avola"), description: t("Sicilia Occidentale - Valle del Belice - Gibellina · 13,00 % Vol. Vino fine e persistente, dallo spiccato profumo di frutta rossa matura. Secco ed equilibrato, ideale con carni grigliate", "Western Sicily - Belice Valley - Gibellina · 13.00% Vol. Fine and persistent wine, with a distinct aroma of ripe red fruit. Dry and balanced, ideal with grilled meats"), price: "11,00" },
+      { name: t("Ilare Catarratto Chardonnay", "Ilare Catarratto Chardonnay"), description: t("Sicilia Occidentale - Valle del Belice - Gibellina · 12,00 % Vol. Vino fine e persistente con profumo di frutta matura, pera e mela verde. Secco ed equilibrato, è raccomandato con pesce e formaggi freschi", "Western Sicily - Belice Valley - Gibellina · 12.00% Vol. Fine and persistent wine with aromas of ripe fruit, pear and green apple. Dry and balanced, recommended with fish and fresh cheeses"), price: "11,00" },
+      { name: t("Barone di Montalto Cabernet Sauvignon-Nero d'Avola", "Barone di Montalto Cabernet Sauvignon-Nero d'Avola"), description: t("Sicilia Occidentale - Valle del Belice · 13,50 % Vol. Vino rosso intenso con un bouquet di spezie, frutta scura, e tocchi di caramello. Si abbina con formaggi stagionati e carni grigliate", "Western Sicily - Belice Valley · 13.50% Vol. Intense red wine with a bouquet of spices, dark fruit, and touches of caramel. Pairs well with aged cheeses and grilled meats"), price: "15,00" },
+      { name: t("Barone di Montalto Syrah", "Barone di Montalto Syrah"), description: t("Sicilia Occidentale - Valle del Belice · 14,00 % Vol. Vino rosso violaceo intenso con aromi di violetta e ribes arricchiti da liquirizia e pepe nero. Si sposa bene con formaggi, funghi e carni", "Western Sicily - Belice Valley · 14.00% Vol. Intense purplish red wine with aromas of violet and currant enriched by licorice and black pepper. Pairs well with cheeses, mushrooms and meats"), price: "18,00" },
+      { name: t("Barone di Montalto Grillo", "Barone di Montalto Grillo"), description: t("Sicilia Occidentale - Valle del Belice · 12,50 % Vol. Vino bianco con note di cedro, frutti tropicali ed un palato armonico e vellutato. Si abbina bene a pesce, carni bianche, crostacei, verdure grigliate", "Western Sicily - Belice Valley · 12.50% Vol. White wine with intriguing notes of cedar, tropical fruits and a harmonious and velvety palate. Pairs well with fish, white meats, crustaceans, grilled vegetables"), price: "16,00" },
+      { name: t("Barone di Montalto Cucunci Chardonnay Frizzante", "Barone di Montalto Cucunci Sparkling Chardonnay"), description: t("Sicilia Occidentale - Valle del Belice · 11,50 % Vol. Cucunci, la pianta del cappero, è nota per crescere in luoghi con poca acqua. Vino frizzante aromatico con un'acidità fresca e aromi di frutti gialli e mela verde. Ideale come aperitivo, perfetto con antipasti di mare o verdure.", "Western Sicily - Belice Valley · 11.50% Vol. Cucunci, the caper plant, is known to grow in places with little water. Aromatic sparkling wine with fresh acidity and aromas of yellow fruits and green apple. Ideal as an aperitif, perfect with seafood appetizers or vegetables."), price: "17,00" },
+      { name: t("Spumante Millesimato", "Millesimato Sparkling Wine"), price: "16,00" },
+      { name: t("Calice Ilare Nero d'Avola", "Glass of Ilare Nero d'Avola"), price: "5,00" },
+      { name: t("Calice Ilare Catarratto Chardonnay", "Glass of Ilare Catarratto Chardonnay"), price: "5,00" },
+      { name: t("Calice Barone di Montalto Grillo", "Glass of Barone di Montalto Grillo"), price: "6,00" },
+      { name: t("Calice vino locale", "Glass of local wine"), price: "4,00" },
+      { name: t("Vino locale ½ L", "Local wine ½ L"), price: "7,00" },
+      { name: t("Vino locale 1 L", "Local wine 1 L"), price: "12,00" }
+    ]
+  },
+  {
+    id: "caffe-amari",
+    title: t("Caffè e Amari", "Coffee and Bitters"),
+    items: [
+      { name: t("Caffè", "Coffee"), price: "1,50" },
+      { name: t("Decaffeinato", "Decaf"), price: "1,80" },
+      { name: t("Amaro alle erbe", "Herbal bitter"), price: "2,50" },
+      { name: t("Averna", "Averna"), price: "3,00" },
+      { name: t("Amaro del Capo", "Amaro del Capo"), price: "3,00" },
+      { name: t("Montenegro", "Montenegro"), price: "3,00" },
+      { name: t("Jägermeister", "Jägermeister"), price: "3,00" },
+      { name: t("Unicum", "Unicum"), price: "3,00" },
+      { name: t("Limoncello", "Limoncello"), price: "3,00" },
+      { name: t("Grappa bianca", "White grappa"), price: "3,50" },
+      { name: t("Grappa barricata", "Aged grappa"), price: "4,00" },
+    ]
+  },
+  {
+    id: "dessert",
+    title: t("Dessert", "Dessert"),
+    description: t("SL = senza lattosio · SG = senza glutine", "SL = lactose-free · SG = gluten-free"),
+    items: [
+      { name: t("Sorbetto al limone", "Lemon Sorbet"), price: "2,50" },
+      { name: t("Tiramisù (SL)", "Tiramisù (SL)"), price: "5,00" },
+      { name: t("Cassatelle con ricotta", "Cassatelle with ricotta"), price: "3,50" },
+      { name: t("Semifreddo alla mandorla con cioccolato (SG)", "Almond semifreddo with chocolate (SG)"), price: "4,00" },
+      { name: t("Semifreddo al pistacchio ai frutti di bosco (SG)", "Pistachio semifreddo with forest fruits (SG)"), price: "4,50" },
+      { name: t("Tortino cuore caldo con gelato alla vaniglia", "Warm heart cake with vanilla ice cream"), price: "4,00" },
     ]
   }
 ];

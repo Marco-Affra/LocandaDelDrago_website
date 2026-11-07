@@ -20,18 +20,19 @@ export default function Menu() {
 
   const navGroups = [
     { id: "group-antipasti", title: t("Antipasti", "Appetizers"), ids: ["antipasti-rustici", "antipasti-pesce", "fritti"] },
-    { id: "group-primi", title: t("Primi", "First Courses"), ids: ["primi-rustici", "primi-pesce"] },
+    { id: "group-primi", title: t("Primi", "First Courses"), ids: ["primi-carne", "primi-pesce"] },
     { id: "group-secondi", title: t("Secondi", "Main Courses"), ids: ["secondi-carne", "secondi-pesce"] },
     { id: "group-contorni", title: t("Contorni", "Side Dishes"), ids: ["contorni"] },
     { 
       id: "group-pizze",
       title: t("Pizze", "Pizzas"), 
-      ids: ["pizze-classiche", "pizze-locanda", "pizze-bordo-ripieno", "pizze-pistacchio", "pizze-bianche", "pizze-rosse", "schiacciate", "aggiunzioni-pizze"] 
+      ids: ["pizze-classiche", "pizze-locanda", "pizze-bordo-ripieno", "pizze-pistacchio", "pizze-bianche", "pizze-rosse", "schiacciate", "aggiunte-pizze"] 
     },
-    { id: "group-dessert", title: t("Dessert", "Dessert"), ids: ["dessert"] }, 
-    { id: "group-vini", title: t("Vini", "Wines"), ids: ["vini"] },
+    { id: "group-bibite", title: t("Bibite", "Drinks"), ids: ["bibite"] },
     { id: "group-birre", title: t("Birre", "Beers"), ids: ["birre"] },
-    { id: "group-bibite", title: t("Bibite", "Drinks"), ids: ["bibite"] }
+    { id: "group-vini", title: t("Vini", "Wines"), ids: ["vini"] },
+    { id: "group-caffe", title: t("Caffè e Amari", "Coffee & Bitters"), ids: ["caffe-amari"] },
+    { id: "group-dessert", title: t("Dessert", "Dessert"), ids: ["dessert"] }
   ];
 
   // Handle scroll to update active category
@@ -119,7 +120,7 @@ export default function Menu() {
       <SEO 
         title={t("Il Nostro Menù", "Our Menu")}
         description={t(
-          "Scopri le nostre specialità siciliane: antipasti, primi, secondi e pizze cotte nel forno a legna.",
+          "Scopri le nostre specialità siciliane: antipasti rustici, primi di pesce, carni alla brace e le nostre famose pizze dal forno a legna.",
           "Discover our Sicilian specialties: rustic appetizers, seafood first courses, grilled meats, and our famous wood-fired pizzas."
         )}
         image="/images/cucina-3.webp"
@@ -162,8 +163,8 @@ export default function Menu() {
                 </h3>
                 <p className="text-scuro/80 text-sm md:text-base">
                   {t(
-                    "Se si ha un'allergia si prega di comunicarlo al personale di sala al momento dell'ordine. Cereali contenenti glutine, crostacei, molluschi, pesce, uova, arachidi, soia, latte e lattosio, frutta a guscio, sedano, semi di sesamo, anidride solforosa, aglio, cipolla, prezzemolo, basilico.",
-                    "If you have an allergy, please inform the dining room staff when ordering. Cereals containing gluten, crustaceans, molluscs, fish, eggs, peanuts, soy, milk and lactose, nuts, celery, sesame seeds, sulfur dioxide, garlic, onion, parsley, basil."
+                    "(Reg. UE 1169/2011) I numeri in apice accanto ai piatti indicano: 1 Glutine · 2 Crostacei · 3 Uova · 4 Pesce · 5 Arachidi · 6 Soia · 7 Latte · 8 Frutta a guscio · 9 Sedano · 10 Senape · 11 Sesamo · 12 Solfiti · 13 Lupini · 14 Molluschi. Segnaliamo inoltre aglio, cipolla, prezzemolo e basilico. In caso di allergie o intolleranze comunicatelo al personale al momento dell'ordine.",
+                    "(Reg. UE 1169/2011) The numbers in superscript next to the dishes indicate: 1 Gluten · 2 Crustaceans · 3 Eggs · 4 Fish · 5 Peanuts · 6 Soy · 7 Milk · 8 Nuts · 9 Celery · 10 Mustard · 11 Sesame · 12 Sulfites · 13 Lupins · 14 Molluscs. We also signal garlic, onion, parsley and basil. In case of allergies or intolerances, please inform the staff when ordering."
                   )}
                 </p>
                 <p className="text-scuro/60 text-xs mt-4 italic">
@@ -239,6 +240,12 @@ export default function Menu() {
                   <h2 className="text-3xl md:text-4xl font-cinzel text-bordeaux mb-8 pb-2 border-b-2 border-oro/30 inline-block">
                     {category.title}
                   </h2>
+                  
+                  {category.description && (
+                    <p className="text-sm text-scuro/60 mb-6 italic -mt-4">
+                      {category.description}
+                    </p>
+                  )}
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                     {category.items.map((item, itemIndex) => (
